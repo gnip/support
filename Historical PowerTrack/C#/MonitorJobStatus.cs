@@ -10,20 +10,19 @@ namespace BasicOps
 		public static void Main (string[] args)
 		{
 			MainClass op = new MainClass();
-			op.SearchGetRequest();
+			op.MonitorJob();
 		}
 
 		public HttpWebRequest makeRequest()
 		{
 
-			string urlString = "ENTER_URL";
+            // Enter the jobURL for the historical job below.  This is a field returned when you create the job.
+			string urlString = "ENTER_JOB_URL_HERE";
+
 			string username = "ENTER_USERNAME";
 			string password = "ENTER_PASSWORD";
-            string query = "gnip";
 
-            string queryString = urlString + "?query=" + query + "&publisher=twitter";
-
-			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(queryString);
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlString);
 		
 			NetworkCredential nc = new NetworkCredential(username, password);
 			request.Credentials = nc;
@@ -33,7 +32,7 @@ namespace BasicOps
 		}
 
 
-		public void SearchGetRequest()
+		public void MonitorJob()
 		{
 			HttpWebRequest request = makeRequest();
             request.Method = "GET";

@@ -1,5 +1,4 @@
-<h1>Search API</h1>
+<h1>Historical PowerTrack API</h1>
 
-<p>The Gnip Search API supports requests for full Tweet payloads that match a specific query, as well as Tweet counts for the query over the given time period from the previous 30 days.</p>
+<p>The Gnip Historical PowerTrack API supports Historical requests Twitter data from the entire historical Twitter corpus. See our <a href="http://support.gnip.com/customer/portal/topics/340695-api-documentation---historical/articles">Documentation</a> for information on the job workflow.</p>
 
-<p>The Following snippets are examples of how to make requests for full Tweet payloads on the Search API.</p>
