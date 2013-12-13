@@ -16,7 +16,7 @@ namespace BasicOps
 		public HttpWebRequest makeRequest()
 		{
 
-			string urlString = "ENTER_RULES_API_URL_HERE";
+			string urlString = "ENTER_SEARCH_API_URL_HERE";
 			string username = "ENTER_USERNAME_HERE";
 			string password = "ENTER_PASSWORD_HERE";
 
