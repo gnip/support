@@ -23,9 +23,9 @@ namespace BasicOps
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlString);
             request.ServicePoint.Expect100Continue = false;
 
-		    NetworkCredential nc = new NetworkCredential(username, password);
-		    request.Credentials = nc;
-			request.PreAuthenticate = true;
+		    	string authInfo = string.Format("{0}:{1}", username, password);
+            		authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+            		request.Headers.Add("Authorization", "Basic " + authInfo);
 
 			request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 
@@ -41,7 +41,7 @@ namespace BasicOps
 
 			request.Method = "POST";
 
-			postData = "{\"query\":\"" + query + "\",\"publisher\":\"twitter\"}]}";
+			postData = "{\"query\":\"" + query + "\",\"publisher\":\"twitter\"}";
 
 			byte[] byteArray = Encoding.UTF8.GetBytes (postData);
             		request.ContentType = "application/x-www-form-urlencoded";
