@@ -11,7 +11,7 @@ def post():
 	PWD = 'ENTER_PASSWORD'
 	account = 'ENTER_GNIP_CONSOLE_ACCOUNT_NAME'
 
-	url = 'https://historical.gnip.com/accounts/"' + account + '"/jobs.json'
+	url = 'https://historical.gnip.com/accounts/' + account + '/jobs.json'
 	publisher = "twitter"
 	streamType = "track"
 	dataFormat = "activity-streams"
