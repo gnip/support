@@ -19,15 +19,21 @@ namespace BasicOps
 			string urlString = "ENTER_URL";
 			string username = "ENTER_USERNAME";
 			string password = "ENTER_PASSWORD";
-            string query = "gnip";
+                        
+                        string query = "gnip";
 
-            string queryString = urlString + "?query=" + query + "&publisher=twitter";
+                        string queryString = urlString + "?query=" + query + "&publisher=twitter";
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(queryString);
+
+		        string authInfo = string.Format("{0}:{1}", username, password);
+                        authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+                        request.Headers.Add("Authorization", "Basic " + authInfo);
 		
-			NetworkCredential nc = new NetworkCredential(username, password);
-			request.Credentials = nc;
-			request.PreAuthenticate = true;
+		        //In some Windows environments, this alternative Basic Authentication method is available.
+			//NetworkCredential nc = new NetworkCredential(username, password);
+			//request.Credentials = nc;
+			//request.PreAuthenticate = true;
 
 			return request;			
 		}
