@@ -24,9 +24,14 @@ namespace BasicOps
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlString);
 
-		    NetworkCredential nc = new NetworkCredential(username, password);
-		    request.Credentials = nc;
-			request.PreAuthenticate = true;
+		    	string authInfo = string.Format("{0}:{1}", username, password);
+                        authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
+                        request.Headers.Add("Authorization", "Basic " + authInfo);
+                
+                        //In some Windows environments, this alternative Basic Authentication method is available.
+                        //NetworkCredential nc = new NetworkCredential(username, password);
+                        //request.Credentials = nc;
+                        //request.PreAuthenticate = true;
 
 			request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
 
