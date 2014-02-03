@@ -47,7 +47,8 @@ namespace StreamingConnection
             //NetworkCredential nc = new NetworkCredential(username, password);
             //request.Credentials = nc;
             //request.PreAuthenticate = true;
-
+            
+            request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
             request.Headers.Add("Accept-Encoding", "gzip");
             request.Accept = "application/json";
             request.ContentType = "application/json";
