@@ -9,8 +9,38 @@
  *  http://stackoverflow.com/questions/14760303/streamed-http-with-gzip-being-buffered-by-streamreader/14778103#14778103
  * 
  *  Thanks to Dan for sharing his code to better handle the streaming data buffer.
- *
- */
+ 
+=== In the Main method:
+
+* Basic Authentication credentials are set. In a 'real' application you'd want to pass these in or retrieve from a configuration file or some other data store.
+
+* Request headers are set (streaming data is JSON that is gzipped):
+  request.Headers.Add("Authorization", "Basic " + authInfo);
+  request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+  request.Headers.Add("Accept-Encoding", "gzip");
+  request.Accept = "application/json";
+  request.ContentType = "application/json";
+
+* Set a read timeout at 30 seconds (a heartbeat data signal is sent every 15 seconds)
+
+* Set-up the callback 'plumbing' (specifying 'handleResult' method) and make the initial request:
+  AsyncCallback asyncCallback = new AsyncCallback(handleResult); //Setting handleResult as Callback method...
+  request.BeginGetResponse(asyncCallback, request);
+
+=== In the handleResult method:
+
+* Establish the data stream 
+  using (HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(result))
+  using (Stream stream = response.GetResponseStream())
+  using (MemoryStream memory = new MemoryStream())
+  using (GZipStream gzip = new GZipStream(memory, CompressionMode.Decompress))
+
+* Manage the stream buffer
+  Detecting the heartbeat data signal
+  Parsing the streamed data string around NewLine characters
+  Write activities to Console/System.out (and here you'll implement your data processing/storage strategy of choice).
+ 
+*/
 
 using System;
 using System.IO;
