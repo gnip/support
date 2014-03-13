@@ -7,47 +7,50 @@ import java.net.URL;
 public class ListRules {
     public static void main(String... args) throws IOException {
 
-	String username = "ENTER_USERNAME_HERE";
-    String password = "ENTER_PASSWORD_HERE";
-    String charset = "UTF-8";
-
-//	Expected Premium Stream URL Format:
-//	https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
-
-	String dataCollectorURL = "ENTER_RULES_API_URL_HERE";		
-
-        HttpURLConnection connection = null;
-        InputStream inputStream = null;
-
-        try {
-            connection = getConnection(dataCollectorURL, username, password);
-
-            inputStream = connection.getInputStream();
-            int responseCode = connection.getResponseCode();
-
-            if (responseCode >= 200 && responseCode <= 299) {
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader((inputStream), charset));
-                String line = reader.readLine();
-
-                while(line != null){
-                    System.out.println(line);
-                    line = reader.readLine();
-                }
-            } else {
-                handleNonSuccessResponse(connection);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            if (connection != null) {
-                handleNonSuccessResponse(connection);
-            }
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        }
-    }
+	 	String charset = "UTF-8"; //All things Gnip use UTF-8.
+	
+		String username = "ENTER_USERNAME_HERE";
+	    String password = "ENTER_PASSWORD_HERE";
+	
+		//Expected Premium Stream URL Format:
+		//https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
+		//Update URL with your account name, type of stream, and stream label.
+		//You can refer to the 'API Help' tab of your http://console.gnip.com dashboard for your complete Rules API URL.
+	
+		String rules_api_url = "ENTER_RULES_API_URL_HERE";		
+	
+	    HttpURLConnection connection = null;
+	    InputStream inputStream = null;
+	
+	    try {
+	        connection = getConnection(rules_api_rul, username, password);
+	
+	        inputStream = connection.getInputStream();
+	        int responseCode = connection.getResponseCode();
+	
+	        if (responseCode >= 200 && responseCode <= 299) {
+	
+	            BufferedReader reader = new BufferedReader(new InputStreamReader((inputStream), charset));
+	            String line = reader.readLine();
+	
+	            while(line != null){
+	                System.out.println(line);
+	                line = reader.readLine();
+	            }
+	        } else {
+	            handleNonSuccessResponse(connection);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        if (connection != null) {
+	            handleNonSuccessResponse(connection);
+	        }
+	    } finally {
+	        if (inputStream != null) {
+	            inputStream.close();
+	        }
+    	}
+	}
 
     private static void handleNonSuccessResponse(HttpURLConnection connection) throws IOException {
         int responseCode = connection.getResponseCode();
