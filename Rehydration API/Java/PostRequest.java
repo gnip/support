@@ -10,12 +10,15 @@ class PostRequest {
 
 		String username = "ENTER_USERNAME_HERE";
 		String password = "ENTER_PASSWORD_HERE";
-		String gnipURL = "ENTER_API_URL_HERE";
 
-		String charset = "UTF-8";
-		
-		String tweetIds = "443569001461846016,443570733990440961";
-		String query = String.format("{\"ids\":[\"%s\"]}", tweetIds);
+		//Expected Rehydration URL Format:
+		//https://rehydration.gnip.com:443/accounts/<account>/publishers/twitter/rehydration/<label>.json
+		//Update URL with your account name and stream label.
+		//You can refer to the 'API Help' tab of your http://console.gnip.com Rehydration dashboard for your complete URL.
+		String gnipURL = "https://rehydration.gnip.com:443/accounts/<account>/publishers/twitter/rehydration/<label>.json";
+
+		String tweetIds = "\"443569001461846016\",\"443570733990440961\""; 
+		String query = String.format("{\"ids\":[%s]}", tweetIds);
 		
 		HttpURLConnection connection = null;
 		InputStream inputStream = null;
