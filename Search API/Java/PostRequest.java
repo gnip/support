@@ -4,16 +4,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 class PostRequest {
-  public static void main(String[] args) throws IOException  {
+	public static void main(String[] args) throws IOException  {
+
+		String charset = "UTF-8"; //All things Gnip use UTF-8;
 
         String username = "ENTER_USERNAME_HERE";
         String password = "ENTER_PASSWORD_HERE";
-        String gnipURL = "ENTER_API_URL_HERE";
-
-    	String charset = "UTF-8";
-
-	    String rule = "gnip";
-        String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", java.net.URLEncoder.encode(rule, charset));
+        
+        //Expected Search API URL Format: https://search.gnip.com:443/accounts/<account>/search/<label>.json
+        //Update URL with your account name and stream label.
+        //You can refer to the 'API Help' tab of your http://console.gnip.com Search API dashboard for your complete URL.
+        String gnipURL = "https://search.gnip.com:443/accounts/jim/search/prod.json";
+        
+		String rule = "(lang:en OR country_code:us) \\\"cold weather\\\"";
+	    
+		String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", rule);
 
         HttpURLConnection connection = null;
         InputStream inputStream = null;
