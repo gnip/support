@@ -16,7 +16,7 @@ class AddRule {
 	//https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
     String rules_api_url = "https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json";
 
-    String rule_value = "(lang:en OR profile_country_code:us) weather"; //Rule syntax to add.
+    String rule_value = "(lang:en OR country_code:us) weather"; //Rule syntax to add.
     String rule_tag = "weather";  //Tag for rule. Tags are optional, but recommended!
     String query = String.format("{\"rules\":[{\"value\":\"%s\",\"tag\":\"%s\"}]}",rule_value, rule_tag);
 
