@@ -14,6 +14,8 @@ class AddRule {
 
 	//Expected Premium Stream URL Format:
 	//https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
+	//Update URL with your account name, type of stream, and stream label.
+	//You can refer to the 'API Help' tab of your http://console.gnip.com dashboard for your complete Rules API URL.
     String rules_api_url = "https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json";
 
     String rule_value = "(lang:en OR country_code:us) weather"; //Rule syntax to add.
