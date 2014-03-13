@@ -72,7 +72,6 @@ class DeleteRule {
             inputStream.close();
         }
     }
-
   }
 
   private static void handleNonSuccessResponse(HttpURLConnection connection) throws IOException {
