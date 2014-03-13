@@ -67,7 +67,7 @@ public class ListRules {
 
         connection.setRequestProperty("Authorization", createAuthHeader(username, password));
 
-   return connection;
+   		return connection;
     }
 
     private static String createAuthHeader(String username, String password) throws UnsupportedEncodingException {
