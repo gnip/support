@@ -17,8 +17,17 @@ class PostRequest {
         String gnipURL = "https://search.gnip.com:443/accounts/jim/search/prod.json";
         
 		String rule = "(lang:en OR country_code:us) \\\"cold weather\\\"";
-	    
 		String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", rule);
+		
+		//Other possible parameters:
+        //fromDate - defaults to now - 30 days.
+        //String fromDate = "201403081200";
+        //toDate - defaults to now.
+        //String toDate = "201403120000";
+        //maxResults - defaults to 100, valid 10-500;
+        //int maxResults = 10;
+		//Build the query stream with all these parameters.
+        //String query = String.format("{\"query\":\"%s\",\"fromDate\":\"%s\",\"toDate\":\"%s\",\"maxResults\":\"%s\",\"publisher\":\"twitter\"}", rule, fromDate, toDate, Integer.toString(maxResults));
 
         HttpURLConnection connection = null;
         InputStream inputStream = null;
