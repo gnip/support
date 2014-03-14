@@ -83,30 +83,30 @@ class PostRequest {
     
   }
 
-      private static void handleNonSuccessResponse(HttpURLConnection connection) throws IOException {
-          int responseCode = connection.getResponseCode();
-          String responseMessage = connection.getResponseMessage();
-          System.out.println("Response Code: " + responseCode + " -- " + responseMessage);
-      }
+  private static void handleNonSuccessResponse(HttpURLConnection connection) throws IOException {
+      int responseCode = connection.getResponseCode();
+      String responseMessage = connection.getResponseMessage();
+      System.out.println("Response Code: " + responseCode + " -- " + responseMessage);
+  }
 
-      private static HttpURLConnection getConnection(String urlString, String username, String password) throws IOException {
-          URL url = new URL(urlString);
+  private static HttpURLConnection getConnection(String urlString, String username, String password) throws IOException {
+      URL url = new URL(urlString);
 
-          HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-          connection.setRequestMethod("POST");
-          connection.setReadTimeout(1000 * 60 * 60);
-          connection.setConnectTimeout(1000 * 10);
+      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+      connection.setRequestMethod("POST");
+      connection.setReadTimeout(1000 * 60 * 60);
+      connection.setConnectTimeout(1000 * 10);
 
-          connection.setRequestProperty("Authorization", createAuthHeader(username, password));
+      connection.setRequestProperty("Authorization", createAuthHeader(username, password));
 
-           return connection;
-      }
+       return connection;
+  }
 
-      private static String createAuthHeader(String username, String password) throws UnsupportedEncodingException {
-          BASE64Encoder encoder = new BASE64Encoder();
-          String authToken = username + ":" + password;
-          return "Basic " + encoder.encode(authToken.getBytes());
-      }
+  private static String createAuthHeader(String username, String password) throws UnsupportedEncodingException {
+      BASE64Encoder encoder = new BASE64Encoder();
+      String authToken = username + ":" + password;
+      return "Basic " + encoder.encode(authToken.getBytes());
+  }
   
 }
 
