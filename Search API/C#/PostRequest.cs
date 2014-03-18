@@ -22,7 +22,8 @@ namespace BasicOps
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlString);
                         request.ServicePoint.Expect100Continue = false;
-
+			
+			//Search API should use this method of Basic Authentication.
 		    	string authInfo = string.Format("{0}:{1}", username, password);
             		authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
             		request.Headers.Add("Authorization", "Basic " + authInfo);
