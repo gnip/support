@@ -25,7 +25,7 @@ namespace BasicOps
                         string queryString = urlString + "?query=" + query + "&publisher=twitter";
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(queryString);
-
+			//Search API should use this method of Basic Authentication.
 		        string authInfo = string.Format("{0}:{1}", username, password);
                         authInfo = Convert.ToBase64String(Encoding.Default.GetBytes(authInfo));
                         request.Headers.Add("Authorization", "Basic " + authInfo);
@@ -42,17 +42,17 @@ namespace BasicOps
 		public void SearchGetRequest()
 		{
 			HttpWebRequest request = makeRequest();
-            request.Method = "GET";
+            		request.Method = "GET";
 			HttpWebResponse response = (HttpWebResponse) request.GetResponse();
             
 			Console.WriteLine (((HttpWebResponse)response).StatusDescription);
 			StreamReader reader = new StreamReader(response.GetResponseStream());
 
-            string responseFromServer = reader.ReadToEnd ();
-            Console.WriteLine (responseFromServer);
+            		string responseFromServer = reader.ReadToEnd ();
+            		Console.WriteLine (responseFromServer);
 			Console.WriteLine();
-            reader.Close ();
-	        response.Close ();
+		        reader.Close ();
+	        	response.Close ();
 		}
 
 	}
