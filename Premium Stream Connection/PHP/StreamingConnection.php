@@ -17,7 +17,7 @@ function print_out_data($ch, $data) {
   return strlen($data);
 }
 
-//Timeout considerations: these two setting can be used together to tune your
+//Timeout considerations: these two setting can be tuned from the settings below to tweak your 
 //system if you are not properly timing out.  
 //CURLOPT_LOW_SPEED_LIMIT: long
 // -- Specify the transfer speed in bytes per second that the transfer should be  
@@ -38,7 +38,9 @@ curl_setopt_array($ch, array(
   CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
   CURLOPT_USERPWD => $user.":".$pass,
   CURLOPT_WRITEFUNCTION => "print_out_data",
-  CURLOPT_BUFFERSIZE => 2000
+  CURLOPT_BUFFERSIZE => 2000,
+  CURLOPT_LOW_SPEED_LIMIT => 1,
+  CURLOPT_LOW_SPEED_TIME => 60
 //  CURLOPT_VERBOSE => true // uncomment for curl verbosity
 
 ));
