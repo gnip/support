@@ -4,7 +4,7 @@ require "uri"
 # This uses the standard net/https gem.
 # prints data to stdout.
 
-url = "ENTER_API_URL_HERE"
+url = "https://rehydration.gnip.com:443/accounts/<ACCOUNT_NAME>/publishers/twitter/rehydration/activities.json"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
