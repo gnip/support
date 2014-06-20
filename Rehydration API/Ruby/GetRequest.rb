@@ -8,10 +8,10 @@ url = "https://rehydration.gnip.com:443/accounts/<ACCOUNT_NAME>/publishers/twitt
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-tweetId = '477926086391521280,479442146567544832'
+tweetIds = '477926086391521280,479442146567544832'
 
 uri = URI.parse(url)
-uri.query = "ids=" + tweetId
+uri.query = "ids=#{tweetIds}"
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
