@@ -1,26 +1,30 @@
-require 'rubygems'
-require 'curb'
+require "net/https"     #HTTP gem.
+require "uri"
 
-# This uses the 'curb' libcurl wrapper for ruby, found at https://github.com/taf2/curb/  
+# This uses the standard net/https gem .
 # prints data to stdout.
 
-url = "ENTER_API_URL_HERE"
+url = "https://rehydration.gnip.com:443/accounts/<ACCOUNT_NAME>/publishers/twitter/rehydration/activities.json"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-tweetId = "403245346194616320"
+#List of tweets in (escaped) double-quotes.
+tweetIds = "\"477926086391521280\",\"479442146567544832\""
+queryString = "{\"ids\":[" + tweetIds + "]}"
 
-queryString = "{\"ids\":[\"" + tweetId + "\"]}"
+uri = URI(url)
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+request = Net::HTTP::Post.new(uri.path)
+request.body = queryString
+request.basic_auth(user, pass)
 
-Curl::Easy.http_post(url) do |c|
-  c.http_auth_types = :basic
-  c.username = user
-  c.password = pass
-  c.post_body = queryString
-  c.verbose = true
-
-  c.on_body do |data|
-    puts data
-    data.size # required by curl's api.
-  end
+begin
+    response = http.request(request)
+rescue
+    sleep 5
+    response = http.request(request) #try again
 end
+
+#Print out response.
+puts response.body
