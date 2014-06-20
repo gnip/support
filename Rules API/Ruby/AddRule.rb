@@ -1,29 +1,34 @@
-require 'rubygems'
-require 'curb'
+require "net/https"     #HTTP gem.
+require "uri"
 
-# This uses the 'curb' libcurl wrapper for ruby, found at https://github.com/taf2/curb/
+# This uses the standard 'net/http' gem.
+# prints data to stdout.
 
-# Expected Premium Stream URL Format:
-# 	https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
+# Rules API endpoint format:
+#   https://api.gnip.com:443/accounts/<account>/publishers/<publisher>/streams/<stream>/<label>/rules.json
 
 url = "ENTER_RULES_API_URL_HERE"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-rule_value = "testRule"
-rule_tag = "testTag"
+rule_value = "(gnip OR \\\"this exact phrase\\\") country_code:us"
+rule_tag = "my_tag"
 
-rule = "{\"rules\":[{\"value\":\"" + rule_value + "\",\"tag\":\"" + rule_tag + "\"}]}"
+rules_json = "{\"rules\":[{\"value\":\"" + rule_value + "\",\"tag\":\"" + rule_tag + "\"}]}"
 
-Curl::Easy.http_post(url) do |c|
-  c.http_auth_types = :basic
-  c.username = user
-  c.password = pass
-  c.post_body = rule
-  c.verbose = true
+uri = URI(url)
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+request = Net::HTTP::Post.new(uri.path)
+request.body = rules_json
+request.basic_auth(user, pass)
 
-  c.on_body do |data|
-    puts data
-    data.size # required by curl's api.
-  end
+begin
+    response = http.request(request)
+rescue
+    sleep 5
+    response = http.request(request) #try again
 end
+
+puts response
+
