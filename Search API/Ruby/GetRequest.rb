@@ -1,25 +1,32 @@
-require 'rubygems'
-require 'curb'
+require 'net/https'
+require 'uri'
 
-# This uses the 'curb' libcurl wrapper for ruby, found at https://github.com/taf2/curb/  
+# This uses the standard net/https gem.
 # prints data to stdout.
 
 url = "ENTER_API_URL_HERE"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-rule = 'gnip'
+rule = 'gnip country_code:us'
 
-queryString= url + "?publisher=twitter&query=" + rule
+uri = URI.parse(url)
 
-Curl::Easy.http_get queryString do |c|
-  c.http_auth_types = :basic
-  c.username = user
-  c.password = pass
-  c.verbose = true # Modify to false to limit output to only JSON rule payload 
+uri.query =  "publisher=twitter&query=#{URI.encode(rule)}&maxReults=500"
 
-  c.on_body do |data|
-    puts data
-    data.size # required by curl's api.
-  end
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+request = Net::HTTP::Get.new(uri.request_uri)
+request.basic_auth(user, pass)
+
+begin
+    response = http.request(request)
+
+rescue
+    sleep 5
+    response = http.request(request) #try again
 end
+
+puts response.body
+
+
