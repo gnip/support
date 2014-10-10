@@ -18,7 +18,6 @@ def post():
 	fromDate = "201301010000" # This time is inclusive -- meaning the minute specified will be included in the data returned
 	toDate = "201301010001" # This time is exclusive -- meaning the data returned will not contain the minute specified, but will contain the minute immediately preceding it
 	jobTitle = "my historical job python"
-	serviceUsername = "your_twitter_handle" # This is the Twitter username your company white listed with Gnip for access.
 	rules = '[{"value":"rule 1","tag":"ruleTag"},{"value":"rule 2","tag":"ruleTag"}]'
 
 	jobString = '{"publisher":"' + publisher + '","streamType":"' + streamType + '","dataFormat":"' + dataFormat + '","fromDate":"' + fromDate + '","toDate":"' + toDate + '","title":"' + jobTitle + '","serviceUsername":"' + serviceUsername + '","rules":' + rules + '}'
