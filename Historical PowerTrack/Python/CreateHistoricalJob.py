@@ -20,7 +20,7 @@ def post():
 	jobTitle = "my historical job python"
 	rules = '[{"value":"rule 1","tag":"ruleTag"},{"value":"rule 2","tag":"ruleTag"}]'
 
-	jobString = '{"publisher":"' + publisher + '","streamType":"' + streamType + '","dataFormat":"' + dataFormat + '","fromDate":"' + fromDate + '","toDate":"' + toDate + '","title":"' + jobTitle + '","serviceUsername":"' + serviceUsername + '","rules":' + rules + '}'
+	jobString = '{"publisher":"' + publisher + '","streamType":"' + streamType + '","dataFormat":"' + dataFormat + '","fromDate":"' + fromDate + '","toDate":"' + toDate + '","title":"' + jobTitle + '","rules":' + rules + '}'
 
 	base64string = base64.encodestring('%s:%s' % (UN, PWD)).replace('\n', '')
 	req = urllib2.Request(url=url, data=jobString)
