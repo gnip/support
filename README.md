@@ -11,7 +11,9 @@
 		<li>
 			<strong>Historical PowerTrack API</strong> - Create and monitor Historical PowerTrack jobs.</li>						
 		<li>
-			<strong>Rehydration API</strong> - Send requests to Gnip's Rehydration API</li>			
+			<strong>Rehydration API</strong> - Send requests to Gnip's Rehydration API.</li>			
+		<li>
+			<strong>Compliance API</strong> - Send requests to Gnip's Compliance API.</li>			
 		<li>
 			<strong>Data Collector</strong> - Connect to the streaming or polling endpoints, or manage rules on a Data Collector stream.</li>			
 	</ul>
