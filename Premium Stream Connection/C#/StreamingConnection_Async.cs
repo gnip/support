@@ -105,7 +105,6 @@ namespace StreamingConnection
             using (HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(result))
             using (Stream stream = response.GetResponseStream())
             using (MemoryStream memory = new MemoryStream())
-            using (GZipStream gzip = new GZipStream(memory, CompressionMode.Decompress))
             {
                 byte[] compressedBuffer = new byte[8192];
                 byte[] uncompressedBuffer = new byte[8192];
@@ -127,9 +126,11 @@ namespace StreamingConnection
                         memory.Write(compressedBuffer.Take(readCount).ToArray(), 0, readCount);
                         memory.Position = 0;
 
-                        int uncompressedLength = gzip.Read(uncompressedBuffer, 0, uncompressedBuffer.Length);
-
-                        output.AddRange(uncompressedBuffer.Take(uncompressedLength));
+                        // No need to decompress the stream again because request.AutomaticDecompression is enabled so the stream will be automatically decompressed
+                        //(see line 80)
+                        //int uncompressedLength = gzip.Read(uncompressedBuffer, 0, uncompressedBuffer.Length);
+                        uncompressedBuffer = memory.ToArray();
+                        output.AddRange(uncompressedBuffer.Take(uncompressedBuffer.Length));
 
                         if (!output.Contains(0x0A)) continue;  //Heartbeat
 
