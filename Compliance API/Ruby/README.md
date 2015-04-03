@@ -2,7 +2,7 @@
 
 ### Gnip Compliance API
 
-To ensure that the Twitter user's voice is continually respected, Gnip's customers are obligated to maintain compliant data stores... meaning that requests to delete or otherwise alter data are acted on and propagated through the customer's data analysis framework. To enable customers to comply, Gnip provides aa API endpoint from which all compliance data related to a customer's account can be regularly requested. A full description of the [Compliance API](http://support.gnip.com/apis/compliance_api/) can be found at the [Gnip support site](http://support.gnip.com).
+To ensure that the Twitter user's voice is continually respected, Gnip's customers are obligated to maintain compliant data stores... meaning that requests to delete or otherwise alter data are acted on and propagated through the customer's data analysis framework. To enable customers to comply, Gnip provides an API endpoint from which all compliance data related to a customer's account can be regularly requested. A full description of the [Compliance API](http://support.gnip.com/apis/compliance_api/) can be found at the [Gnip support site](http://support.gnip.com).
 
 The purpose of this example code is to illustrate how the Compliance API works and provide a starting place for your custom development. With luck it provides the functionality you need 'off-the-shelf.' Most likely you'll decide to extend and customize its behavior. Maybe you want to write Compliance API data to a database.  Maybe you want to wrap a user-interface around this.
 
