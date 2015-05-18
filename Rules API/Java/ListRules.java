@@ -23,7 +23,7 @@ public class ListRules {
 	    InputStream inputStream = null;
 	
 	    try {
-	        connection = getConnection(rules_api_rul, username, password);
+	        connection = getConnection(rules_api_url, username, password);
 	
 	        inputStream = connection.getInputStream();
 	        int responseCode = connection.getResponseCode();
