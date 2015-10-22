@@ -24,6 +24,7 @@ curl_setopt_array($ch, array(
   CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
   CURLOPT_USERPWD => $user.":".$pass,
   CURLOPT_POST    => 1,
+  CURLOPT_RETURNTRANSFER => true,
   CURLOPT_POSTFIELDS => $jobString,
 //  CURLOPT_VERBOSE => true  // Uncomment for curl verbosity
 ));
