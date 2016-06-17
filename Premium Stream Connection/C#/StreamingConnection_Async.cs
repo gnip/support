@@ -127,7 +127,8 @@ namespace StreamingConnection
                         memory.Write(compressedBuffer.Take(readCount).ToArray(), 0, readCount);
                         memory.Position = 0;
 
-                        int uncompressedLength = gzip.Read(uncompressedBuffer, 0, uncompressedBuffer.Length);
+                        //int uncompressedLength = gzip.Read(uncompressedBuffer, 0, uncompressedBuffer.Length);
+                        int uncompressedLength = memory.Read(uncompressedBuffer, 0, uncompressedBuffer.Length);
 
                         output.AddRange(uncompressedBuffer.Take(uncompressedLength));
 
