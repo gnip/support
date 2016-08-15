@@ -22,7 +22,7 @@ def post():
 
 	base64string = base64.encodestring('%s:%s' % (UN, PWD)).replace('\n', '')
 	req = urllib2.Request(url=url, data=values)
-    req.add_header('Content-type', 'application/json')
+	req.add_header('Content-type', 'application/json')
 	req.add_header("Authorization", "Basic %s" % base64string)  
 	
 	try:
@@ -31,6 +31,7 @@ def post():
 		print e.read()
 		
 	the_page = response.read()
+	print the_page
 
 if __name__ == "__main__":
         post()
