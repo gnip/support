@@ -12,7 +12,7 @@ rule = 'gnip country_code:us'
 
 uri = URI.parse(url)
 
-uri.query =  "publisher=twitter&query=#{URI.encode(rule)}&maxReults=500"
+uri.query =  "publisher=twitter&query=#{URI.encode(rule)}&maxResults=500"
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
