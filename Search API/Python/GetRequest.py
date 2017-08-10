@@ -3,7 +3,6 @@
 import urllib2
 import base64
 import json
-import xml
 import sys
 
 class RequestWithMethod(urllib2.Request):
