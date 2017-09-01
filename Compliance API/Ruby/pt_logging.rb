@@ -18,11 +18,10 @@ class PTLogging
     @logger = Logging.logger(@name)
     @logger.level = @warn_level
     layout = Logging.layouts.pattern(:pattern => '[%d] %-5l: %m\n')
-    #Always write to a rolling file.
     default_appender = Logging::Appenders::RollingFile.new 'default', \
          :filename => @log_file_path, :size => (@size * 1024), :keep => @keep, :safe => true, :layout => layout
     #Comment this if you don't want log statements written to system out.
     @logger.add_appenders(default_appender, Logging.appenders.stdout)
     return @logger
   end
-
+end
