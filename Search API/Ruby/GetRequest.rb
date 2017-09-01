@@ -8,7 +8,7 @@ url = "ENTER_API_URL_HERE"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-rule = 'gnip country_code:us'
+rule = '(snow OR rain) profile_region:co'
 
 uri = URI.parse(url)
 
