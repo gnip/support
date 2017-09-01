@@ -8,9 +8,9 @@ url = "ENTER_API_URL_HERE"
 user = "ENTER_USERNAME_HERE"
 pass = "ENTER_PASSWORD_HERE"
 
-rule = "gnip country_code:us"
+rule = "(snow OR rain) profile_region:co"
 
-queryString = "{\"query\":\"" + rule + "\",\"publisher\":\"twitter\",\"maxResults\":\"500\"}"
+queryString = "{\"query\":\"" + rule + "\",\"publisher\":\"twitter\",\"maxResults\":\"100\"}"
 
 uri = URI(url)
 http = Net::HTTP.new(uri.host, uri.port)
