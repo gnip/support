@@ -15,4 +15,8 @@ Examples are avaialble for the following APIs:
 + Search API - Send requests to Twitter Search API
 + Historical PowerTrack API - Create and monitor Historical PowerTrack jobs
 
+### Language coverage
+
+We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, and C#. There is even some PHP examples sprinkled in. If you want to share some example code in other languages, please let us know.  
+
  
