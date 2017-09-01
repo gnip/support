@@ -11,7 +11,7 @@ def post():
 	UN = 'ENTER_USERNAME_HERE'
 	PWD = 'ENTER_PASSWORD_HERE'
 
-	rule = 'gnip'
+	rule = '(snow OR rain) profile_region:co'
 
 	query = '{"query":"' + rule + '","publisher":"twitter"}'
 
