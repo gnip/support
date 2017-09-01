@@ -12,7 +12,7 @@ rule = '(snow OR rain) profile_region:co'
 
 uri = URI.parse(url)
 
-uri.query =  "publisher=twitter&query=#{URI.encode(rule)}&maxReults=500"
+uri.query =  "query=#{URI.encode(rule)}&maxReults=100"
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
