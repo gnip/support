@@ -1,8 +1,5 @@
-require 'net/https'
+require 'net/https' # This uses the standard net/https gem.
 require 'uri'
-
-# This uses the standard net/https gem.
-# prints data to stdout.
 
 url = "ENTER_API_URL_HERE"
 user = "ENTER_USERNAME_HERE"
@@ -12,7 +9,7 @@ rule = '(snow OR rain) profile_region:co'
 
 uri = URI.parse(url)
 
-uri.query =  "query=#{URI.encode(rule)}&maxReults=100"
+uri.query = "query=#{URI.encode(rule)}&maxReults=100"
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
@@ -21,12 +18,11 @@ request.basic_auth(user, pass)
 
 begin
     response = http.request(request)
-
 rescue
     sleep 5
-    response = http.request(request) #try again
+    response = http.request(request) #try a second time... 
 end
 
-puts response.body
+puts response.body # prints data to stdout.
 
 
