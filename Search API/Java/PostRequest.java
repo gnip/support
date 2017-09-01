@@ -5,21 +5,21 @@ import java.net.URL;
 
 class PostRequest {
 	public static void main(String[] args) throws IOException  {
-
-		String charset = "UTF-8"; //All things Gnip use UTF-8;
+	String charset = "UTF-8"; //All things Gnip use UTF-8;
 
         String username = "ENTER_USERNAME_HERE";
         String password = "ENTER_PASSWORD_HERE";
+        String account = "YOUR_ACCOUNT_NAME";
+        String stream_label = "STREAM_LABEL";		
         
         //Expected Search API URL Format: https://search.gnip.com:443/accounts/<account>/search/<label>.json
         //Update URL with your account name and stream label.
         //You can refer to the 'API Help' tab of your http://console.gnip.com Search API dashboard for your complete URL.
-        String gnipURL = "https://search.gnip.com:443/accounts/jim/search/prod.json";
-        
-		String rule = "(lang:en OR country_code:us) \\\"cold weather\\\"";
-		String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", rule);
+	String streamURL = String.format("https://gnip-api.twitter.com/search/30day/accounts/%s/%s.json",account, stream_label);
+        String rule = "(lang:en OR country_code:us) \\\"cold weather\\\"";
+	String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", rule);
 		
-		//Other possible parameters:
+	//Other possible parameters:
         //fromDate - defaults to now - 30 days.
         //String fromDate = "201403081200";
         //toDate - defaults to now.
@@ -33,7 +33,7 @@ class PostRequest {
         InputStream inputStream = null;
 
         try {
-            connection = getConnection(gnipURL, username, password);
+            connection = getConnection(streamURL, username, password);
             connection.setDoOutput(true);
             connection.setRequestProperty("Accept-Charset", charset);
             connection.setRequestProperty("Content-Type", "text/json");
