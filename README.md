@@ -10,13 +10,15 @@ These examples should serve as an example only for the basic API functions, and 
 
 Examples are avaialble for the following APIs:
 
-+ Real-time PowerTrack streaming API - Establish a streaming connection to Twitter PowerTrack and volumee streams, using gzip compression
-+ Real-time PowerTrack Rules API -Add, Delete, and List rules on PowerTrack Streams
-+ Search API - Send requests to Twitter Search API
-+ Historical PowerTrack API - Create and monitor Historical PowerTrack jobs
++ Real-time PowerTrack
+  + Real-time PowerTrack streaming API - Establish a streaming connection to Twitter PowerTrack and volumee streams, using gzip compression
+  + Real-time PowerTrack Rules API -Add, Delete, and List rules on PowerTrack Streams
++ Historical APIs  
+  + Search API - Send requests to Twitter Search API
+  + Historical PowerTrack API - Create and monitor Historical PowerTrack jobs
 
 ### Language coverage
 
-We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, and C#. There is even some PHP examples sprinkled in. If you want to share some example code in other languages, please let us know.  
+We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, and C#. There is even some PHP examples sprinkled in. Next there will likely be examples in node. If you want to share some example code in other languages, please let us know.  
 
  
