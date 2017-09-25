@@ -1,6 +1,6 @@
-<h1>Gnip Support</h1>
-<h2>Premium Stream Connection</h2>
-<p>The following sample code snippets demonstrate one way of establishing a streaming HTTP connection to Gnip's PowerTrack and Firehose streams, using gzip compression.</p>
+## Realtime PowerTrack simple scripts
+
+<p>The following sample code snippets demonstrate one way of establishing a streaming HTTP connection to Twitter's PowerTrack and Firehose streams, using gzip compression.</p>
 <p>The snippets are available in the following programming languages:
 	<ul>
 		<li>
