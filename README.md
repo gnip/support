@@ -10,16 +10,15 @@ These examples should serve as an example only for the basic API functions, and 
 
 Examples are avaialble for the following APIs:
 
-+ Historical APIs  
++ **Historical APIs**  
   + Search API - Send requests to Twitter Search API
     + Works with enterprise search, both 30-day and full-archive APIs. 
     + Separate examples for POST and GET requests. 
   + Historical PowerTrack API - Create and monitor Historical PowerTrack jobs
   
-+ Real-time PowerTrack
++ **Real-time PowerTrack**
   + Real-time PowerTrack streaming API - Establish a streaming connection to Twitter PowerTrack and volume streams, using gzip compression
   + Real-time PowerTrack Rules API -Add, Delete, and List rules on PowerTrack real-time streams
-
 
 ### Language coverage
 
