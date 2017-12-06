@@ -20,9 +20,9 @@ namespace BasicOps
 			string username = "ENTER_USERNAME";
 			string password = "ENTER_PASSWORD";
                         
-                        string query = "gnip";
+                        string query = "TwitterDev";  //Any characters that need to be URL encoded?
 
-                        string queryString = urlString + "?query=" + query + "&publisher=twitter";
+                        string queryString = urlString + "?query=" + query;
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(queryString);
 			//Search API should use this method of Basic Authentication.
