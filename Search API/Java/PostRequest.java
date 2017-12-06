@@ -5,7 +5,7 @@ import java.net.URL;
 
 class PostRequest {
 	public static void main(String[] args) throws IOException  {
-	String charset = "UTF-8"; //All things Gnip use UTF-8;
+	String charset = "UTF-8"; //All things Twitter use UTF-8;
 
         String username = "ENTER_USERNAME_HERE";
         String password = "ENTER_PASSWORD_HERE";
@@ -17,7 +17,7 @@ class PostRequest {
         //You can refer to the 'API Help' tab of your http://console.gnip.com Search API dashboard for your complete URL.
 	String streamURL = String.format("https://gnip-api.twitter.com/search/30day/accounts/%s/%s.json",account, stream_label);
         String rule = "(lang:en OR country_code:us) \\\"cold weather\\\"";
-	String query = String.format("{\"query\":\"%s\",\"publisher\":\"twitter\"}", rule);
+	String query = String.format("{\"query\":\"%s\"}", rule);
 		
 	//Other possible parameters:
         //fromDate - defaults to now - 30 days.
