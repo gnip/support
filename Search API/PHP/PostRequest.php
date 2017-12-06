@@ -6,7 +6,7 @@ $url = "ENTER_API_URL_HERE";
 
 $query = "gnip";
 
-$rules = "{\"query\":\"".$query."\",\"publisher\":\"twitter\"}]}";
+$rules = "{\"query\":\"".$query."\"}";
 
 $ch   = curl_init($url);
 curl_setopt_array($ch, array(
