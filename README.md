@@ -1,6 +1,6 @@
 # Gnip Support
 
-## Example Simple Scripts
+## Example simple scripts
 
 *“As a developer wanting to exercise a Twitter Tweet API, I want an example script that I can quickly configure and start making API request, and see the raw output.”*
 
