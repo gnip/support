@@ -43,11 +43,11 @@ namespace BasicOps
 			HttpWebRequest request = makeRequest();
 			
 			string postData = "";
-			string query = "gnip";
+			string query = "from:TwitterDev";
 
 			request.Method = "POST";
 
-			postData = "{\"query\":\"" + query + "\",\"publisher\":\"twitter\"}";
+			postData = "{\"query\":\"" + query + "\"}";
 
 			byte[] byteArray = Encoding.UTF8.GetBytes (postData);
             		request.ContentType = "application/x-www-form-urlencoded";
