@@ -14,7 +14,7 @@ def post():
 	url = 'https://historical.gnip.com/accounts/' + account + '/jobs.json'
 	publisher = "twitter"
 	streamType = "track"
-	dataFormat = "activity-streams"
+	dataFormat = "original"
 	fromDate = "201301010000" # This time is inclusive -- meaning the minute specified will be included in the data returned
 	toDate = "201301010001" # This time is exclusive -- meaning the data returned will not contain the minute specified, but will contain the minute immediately preceding it
 	jobTitle = "my historical job python"
