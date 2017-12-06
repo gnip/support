@@ -10,15 +10,30 @@ These examples should serve as an example only for the basic API functions, and 
 
 Examples are avaialble for the following APIs:
 
++ Search APIs:
+  
 + Real-time PowerTrack
-  + Real-time PowerTrack streaming API - Establish a streaming connection to Twitter PowerTrack and volumee streams, using gzip compression
-  + Real-time PowerTrack Rules API -Add, Delete, and List rules on PowerTrack Streams
+  + Real-time PowerTrack streaming API - Establish a streaming connection to Twitter PowerTrack and volume streams, using gzip compression
+  + Real-time PowerTrack Rules API -Add, Delete, and List rules on PowerTrack real-time streams
 + Historical APIs  
   + Search API - Send requests to Twitter Search API
+    + Works with enterprise search, both 30-day and full-archive APIs. 
+    + Separate examples for POST and GET requests. 
   + Historical PowerTrack API - Create and monitor Historical PowerTrack jobs
 
 ### Language coverage
 
 We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, C#, and PHP. Next there will likely be examples in node. If you want to share some example code in other languages, please let us know at [https://twittercommunity.com].  
+
+### Other examples
+
+Typically used in-house, often developed as a partner engineering tool. 
+
+Search API examples (these two work with premium and enterprise search APIs):
++ Python search client - https://github.com/twitterdev/twitter_search_api
++ Ruby search client - https://github.com/jimmoffitt/search-tweets-ruby
+
+
+
 
  
