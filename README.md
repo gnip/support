@@ -19,6 +19,6 @@ Examples are avaialble for the following APIs:
 
 ### Language coverage
 
-We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, and C#. There is even some PHP examples sprinkled in. Next there will likely be examples in node. If you want to share some example code in other languages, please let us know.  
+We try to provide examples in as many language as is practical. These examples are first written back in 2012, and were updated for PowerTrack 2.0 in 2016. These examples are mainly in Java, Python, Ruby, C#, and PHP. Next there will likely be examples in node. If you want to share some example code in other languages, please let us know at [https://twittercommunity.com].  
 
  
