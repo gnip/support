@@ -13,7 +13,7 @@ def post():
 
 	rule = '(snow OR rain) profile_region:co'
 
-	query = '{"query":"' + rule + '","publisher":"twitter"}'
+	query = '{"query":"' + rule + '"}'
 
 
 	base64string = base64.encodestring('%s:%s' % (UN, PWD)).replace('\n', '')
